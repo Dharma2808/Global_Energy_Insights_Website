@@ -1,47 +1,68 @@
-/**
-Sample css code
-*/
-/* Set height to 100% for body and html to enable the background image to cover the whole page: */
-body,
-html {
-  height: 100%;
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
 }
-
-/*Set background image*/
-.container {
-  background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
-  height: 100%;
-  background-position: center;
-  background-size: cover;
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 400px;
 }
-
-/* Position text in the middle */
-.middle {
+.footer {
+  background-color: #e8f4ea;
+  margin: 0px auto;
+  padding: 20px 0px;
+}
+.jumbotron {
+  margin: 0px auto;
+  padding: 70px 30px;
+  background: #e8f4ea;
+  color: #0f0f0f;
+}
+address {
+  font-size: 80%;
+  margin: 0px;
+  color: #0f0f0f;
+}
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0;
+}
+.navbar-dark {
+  background-color: 	#006400;
+}
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.carousel {
+  background: 	#006400;
+}
+.carousel .carousel-item {
+  height: 300px;
+}
+.carousel .carousel-item img {
   position: absolute;
-  color: beige;
-  top: 70%;
-  left: 39%;
-  text-align: center;
-  font-size: 25px;
+  top: 0;
+  left: 0;
+  min-height: 300px;
 }
-
-/*Set circle in unordered list*/
-.middle ul {
-  list-style-type: circle;
+#carouselButton {
+  right: 0px;
+  position: absolute;
+  bottom: 0px;
+  z-index: 1;
 }
+.modal-header {
+  background-color: 	#006400;
+  color: #FFFAF0 ;
 
-/*Set text inside li tag to left*/
-.middle ul li {
-  text-align: left !important;
 }
-
-/*Set text color for a tag inside middle class and ul>li element*/
-.middle ul li a {
-  color: beige;
+.modal-body {
+  background-color: #e8f4ea;
 }
-
-/*Change text color and decoration for a tags inside middle class and ul>li element*/
-.middle ul li a:hover {
-  color: red;
-  text-decoration: none;
+.close {
+  color: #FFFAF0 ;
 }
