@@ -110,8 +110,17 @@
                     </tbody>
                 </table>
             </div>
+            </div>
+            <div class="row row-content">
+                <div class="col-12 offset-3 col-sm-6 align-self-center">
+
+                    <canvas id="energyChart" width="600" height="400"></canvas>
+
+                </div>
+            </div>
+
+            
         </div>
-    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -150,13 +159,59 @@
     <!-- Include DataTables CSS and JS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
    
     <script>
         $(document).ready(function () {
+            // DataTables initialization
             $('#energyTable').DataTable({
                 paging: false,       // Disable pagination
                 searching: false,    // Disable search/filtering
                 info: false          // Disable information display
+            });
+
+            // Retrieve data from the table and prepare for chart
+            const tableData = $('#energyTable').DataTable().rows().data();
+            const countries = tableData.toArray().map(row => row[0]);
+            const totalEnergy = tableData.toArray().map(row => parseFloat(row[1]));
+            const renewableEnergy = tableData.toArray().map(row => parseFloat(row[2]));
+            const nonrenewableEnergy = tableData.toArray().map(row => parseFloat(row[3]));
+
+            // Create a stacked column chart
+            const ctx = document.getElementById('energyChart').getContext('2d');
+            const energyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: countries,
+                    datasets: [
+                        {
+                            label: 'Renewable Energy (GW)',
+                            data: renewableEnergy,
+                            backgroundColor: 'rgba(92, 184, 92, 0.7)', // Light green
+                            borderColor: 'rgba(92, 184, 92, 1)', // Darker green
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Nonrenewable Energy (GW)',
+                            data: nonrenewableEnergy,
+                            backgroundColor: 'rgba(255, 99, 132, 0.7)', // Reddish color
+                            borderColor: 'rgba(255, 99, 132, 1)', // Darker red
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            stacked: true
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true
+                        }
+                    }
+                }
             });
         });
     </script>
