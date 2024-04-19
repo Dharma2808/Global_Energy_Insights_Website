@@ -10,8 +10,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/totalenergy.css" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+
+
+
+
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
@@ -39,12 +44,12 @@
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
-                    <h1>Global Energy Insights</h1>
-                    <p>Unlocking the World of Energy: Explore Country-Specific Energy Production and Insights to Foster Environmental Awareness and Sustainable Practices Across the Globe</p>
+                    <h1>Global Energy Insights: Total Energy Production</h1>
+                    <p>Our comprehensive analysis of global energy production, where we delve into the realms of renewable and nonrenewable energy sources. Understanding the dynamics between these two categories is crucial for shaping our energy future.</p>
                 </div>
 
                 <div class="col-6 col-sm-6 text-right align-self-center">
-                    <img src="img/logo.png" class="img-fluid">
+                    <img src="img/total_energy_page_icon.jpg" class="img-fluid">
                 </div>
 
 
@@ -54,7 +59,54 @@
     </header>
     <div class="container">
         <div class="row row-content">
-            //Put the content here
+            <div class="col-12">
+                <h2>Total Energy Production by Country</h2>
+                <p>Explore the total energy production with renewable and nonrenewable energy breakdown for selected countries:</p>
+            </div>
+            <div class="col-12">
+                <table class="table" id="energyTable">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Total Energy Production (GW)</th>
+                            <th>Renewable Energy (GW)</th>
+                            <th>Nonrenewable Energy (GW)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>India</td>
+                            <td>1,863</td>
+                            <td>303</td>
+                            <td>1,560</td>
+                        </tr>
+                        <tr>
+                            <td>China</td>
+                            <td>4,110</td>
+                            <td>1,330</td>
+                            <td>2,780</td>
+                        </tr>
+                        <tr>
+                            <td>Russia</td>
+                            <td>4,496</td>
+                            <td>316</td>
+                            <td>4,180</td>
+                        </tr>
+                        <tr>
+                            <td>USA</td>
+                            <td>7,860</td>
+                            <td>130</td>
+                            <td>7,730</td>
+                        </tr>
+                        <tr>
+                            <td>Germany</td>
+                            <td>2,115</td>
+                            <td>515</td>
+                            <td>1,600</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -89,5 +141,21 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Include jQuery (required by DataTables) from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include DataTables CSS and JS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+   
+    <script>
+        $(document).ready(function () {
+            $('#energyTable').DataTable({
+                paging: false,       // Disable pagination
+                searching: false,    // Disable search/filtering
+                info: false          // Disable information display
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+/* Define table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f3f7f4; /* Light green background color */
+}
+
+/* Define table header styles */
+th {
+    background-color: #4CAF50; /* Dark green background color for table headers */
+    color: #ffffff; /* White text color for table headers */
+    padding: 10px;
+    text-align: left;
+}
+
+/* Define table cell (td) styles */
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd; /* Light gray border between table rows */
+}
