@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Global Energy Insights :Renewable Sources</title>
+    <title>Global Energy Insights: Renewable Sources</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +12,20 @@
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <style>
+        .card-img-top {
+            width: 100%; /* Responsive image size */
+            height: 150px; /* Fixed height for uniformity */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+        }
+
+        .card {
+            flex: 1 0 21%; /* Flex basis set to around 20% allows 5 cards in a row with some margin */
+            margin: 10px; /* Some space between the cards */
+        }
+    </style>
 </head>
+
 <body>
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
         <div class="container">
@@ -22,17 +35,13 @@
             <a class="navbar-brand mr-auto" href="#"><img src="img/logo.png" height="30" width="41"></a>
             <div class="collapse navbar-collapse" id="Navbar">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="./index.html"> <span class="fa fa-home fa-lg"> </span>Home</a> </li>
-                    <li class="nav-item active"><a class="nav-link" href="#"> <span class="fa fa-list fa-lg"> </span>Renewable Resources</a> </li>
-                    <li class="nav-item"><a class="nav-link" href="./nonrenewable.html"> <span class="fa fa-list fa-lg"> </span>Non Renewable Resources</a> </li>
-                    <li class="nav-item"><a class="nav-link" href="./totalenergy.html"> <span class="fa fa-list fa-lg"> </span>Total Energy Production</a> </li>
-                    <li class="nav-item"><a class="nav-link" href="./aboutus.html"> <span class="fa fa-info fa-lg"> </span>About Us</a> </li>
-
-
+                    <li class="nav-item"><a class="nav-link" href="./index.html"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Renewable Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./nonrenewable.html"><span class="fa fa-list fa-lg"></span> Non Renewable Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./totalenergy.html"><span class="fa fa-list fa-lg"></span> Total Energy Production</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About Us</a></li>
                 </ul>
-
             </div>
-
         </div>
     </nav>
     <header class="jumbotron">
@@ -42,52 +51,136 @@
                     <h1>Global Energy Insights</h1>
                     <p>Unlocking the World of Energy: Explore Country-Specific Energy Production and Insights to Foster Environmental Awareness and Sustainable Practices Across the Globe</p>
                 </div>
-
                 <div class="col-6 col-sm-6 text-right align-self-center">
                     <img src="img/logo.png" class="img-fluid">
                 </div>
-
-
             </div>
         </div>
-
     </header>
+
+
+    <style>
+        .select-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #country-select {
+            color: black;
+            width: 50%; /* Smaller width */
+            font-weight: bold; /* Bold text */
+            border: 2px solid black; /* Thick black border */
+            text-align: center;
+        }
+
+        .card-header {
+            color: black; /* Ensure the text is black */
+            font-size: 1.1rem; /* Slightly larger size */
+            font-weight: bold; /* Bold text */
+        }
+
+        .card-text {
+            color: black; /* Ensure the text is black */
+            font-size: 1.1rem; /* Slightly larger size */
+            font-weight: bold; /* Bold text */
+        }
+
+        .card {
+            margin: 1rem; /* Space around cards */
+            width: 30rem; /* Wider cards to accommodate larger images */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-img-top {
+            width: 100%; /* Make image full width of the card */
+            height: 200px; /* Increase height for better visibility */
+            object-fit: cover; /* Ensures the image covers the area well without stretching */
+        }
+    </style>
+
+
+
+
+
     <div class="container">
         <div class="row row-content">
-            //Put the content here
+            <div class="col-12 mt-4">
+                <select id="country-select" class="form-control">
+                    <option value="">Select a Country</option>
+                    <option value="USA">USA</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Russia">Russia</option>
+                </select>
+            </div>
+            <div class="col-12 mt-4 d-flex flex-wrap justify-content-start" id="data-display">
+                <!-- Energy data will be displayed here -->
+            </div>
         </div>
     </div>
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-4 offset-1 col-sm-2">
+            <div class="row justify-content-between">
+                <div class="col-4 col-sm-2">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="./index.html">Home</a></li>
-                        <li><a href="./renewableresource.html">Renewable Resources</a></li>
+                        <li><a href="#">Renewable Resources</a></li>
                         <li><a href="./nonrenewable.html">Non Renewable</a></li>
                         <li><a href="./totalenergy.html">Total Energy</a></li>
                         <li><a href="./aboutus.html">About us</a></li>
                     </ul>
                 </div>
-
                 <div class="col-12 col-sm-4 align-self-center">
                     <div class="text-center">
                         <p>Conserving Today, Sustaining Tomorrow: Powering a Greener Future</p>
                     </div>
                 </div>
-
-                <div class="row justify-content-end">
-                    <div class="col-auto">
-                        <p>©Copyright 2024 Global Energy Insights</p>
-                    </div>
+                <div class="col-auto">
+                    <p>© Copyright 2024 Global Energy Insights</p>
                 </div>
-
             </div>
         </div>
     </footer>
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('country-select').addEventListener('change', function () {
+            const country = this.value;
+            const displayDiv = document.getElementById('data-display');
+            displayDiv.innerHTML = ''; // Clear previous contents
+
+            const energyData = {
+                USA: { Solar: "100 GW", Wind: "150 GW", Hydro: "80 GW" },
+                India: { Solar: "50 GW", Wind: "60 GW", Hydro: "45 GW", Biomass: "10 GW" },
+                China: { Solar: "200 GW", Wind: "300 GW", Hydro: "250 GW", Biomass: "50 GW" },
+                Russia: { Hydro: "30 GW", Wind: "5 GW", Biomass: "4 GW" },
+                Germany: { Solar: "60 GW", Wind: "70 GW", Biomass: "20 GW", Hydro: "10 GW" }
+            };
+
+            if (country in energyData) {
+                Object.keys(energyData[country]).forEach(type => {
+                    const card = document.createElement('div');
+                    card.className = 'card text-center';
+                    card.style.width = '18rem'; // Set the width of each card
+                    card.innerHTML = `
+                            <h5 class="card-header">${type}</h5>
+                            <img src="img/${type.toLowerCase()}.jpg" class="card-img-top" alt="${type}">
+                            <div class="card-body">
+                                <p class="card-text">${energyData[country][type]}</p>
+                            </div>
+                        `;
+                    displayDiv.appendChild(card);
+                });
+            } else {
+                displayDiv.innerHTML = '<p>Please select a valid country to see the data.</p>';
+            }
+        });
+    </script>
 </body>
 </html>
