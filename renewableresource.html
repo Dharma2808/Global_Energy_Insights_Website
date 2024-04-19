@@ -59,6 +59,7 @@
     </header>
 
 
+
     <style>
         .select-container {
             display: flex;
@@ -101,10 +102,6 @@
         }
     </style>
 
-
-
-
-
     <div class="container">
         <div class="row row-content">
             <div class="col-12 mt-4">
@@ -122,6 +119,7 @@
             </div>
         </div>
     </div>
+
     <footer class="footer">
         <div class="container">
             <div class="row justify-content-between">
@@ -149,6 +147,7 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script>
         document.getElementById('country-select').addEventListener('change', function () {
             const country = this.value;
@@ -169,12 +168,12 @@
                     card.className = 'card text-center';
                     card.style.width = '18rem'; // Set the width of each card
                     card.innerHTML = `
-                            <h5 class="card-header">${type}</h5>
-                            <img src="img/${type.toLowerCase()}.jpg" class="card-img-top" alt="${type}">
-                            <div class="card-body">
-                                <p class="card-text">${energyData[country][type]}</p>
-                            </div>
-                        `;
+                                 <h5 class="card-header">${type}</h5>
+                                 <img src="img/${type.toLowerCase()}.jpg" class="card-img-top" alt="${type}">
+                                 <div class="card-body">
+                                     <p class="card-text">${energyData[country][type]}</p>
+                                 </div>
+                             `;
                     displayDiv.appendChild(card);
                 });
             } else {
@@ -182,5 +181,6 @@
             }
         });
     </script>
+
 </body>
 </html>
