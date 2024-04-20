@@ -133,6 +133,104 @@
                 </div>
             </div>
         </div> 
+        <div class="row row-content">
+            <div class="col-12">
+               <h3>SUBSCRIBE NOW</h3>
+               <h5>To get latest news articles or updates about energy developments</h5>
+            </div>
+             <div class="col-12 col-md-9">
+                 <form>
+                     <div class="form-group row">
+                         <label for="firstname" class="col-md-2 col-form-label">FirstName</label>
+                       <div class="col-md-10">
+                         <input type ="text" class="form-control" id="firstname" name="firstname" placeholder="FirstName">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                         <label for="lastname" class="col-md-2 col-form-label">LastName</label>
+                       <div class="col-md-10">
+                         <input type ="text" class="form-control" id="lastname" name="lastname" placeholder="LastName">
+                      </div>
+                      </div>
+                     <div class="form-group row">
+                         <label for="emailid" class="col-md-2 col-form-label">Email</label>
+                         <div class="col-md-10">
+                             <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
+                         </div>
+                     </div>
+                 <div class="form-group row">
+                     <div class="offset-md-2 col-md-10">
+                         <button type="submit" class="btn btn-primary">Subscribe</button>
+                     </div>
+                 </div>
+ 
+                     
+                 </form>
+             </div>
+             
+              <div class="col-12 col-md">
+             </div>
+        </div>
+        <div class="row row-content">
+            <div class="col-12 col-sm-9 ">
+                <h2>Subscribers</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>FirstName</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Tim</th>
+                                <td>Thomas</td>
+                                <td>tim.thomas@gmail.com</td>
+                                <td>
+                                    <a asp-action="Edit" button type="submit" class="btn btn-secondary">Edit</button></a> |
+                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Rahul</th>
+                                <td>Kumar</td>
+                                <td>kumar.r@gmail.com</td>
+                                <td>
+                                    <a asp-action="Edit" button type="submit" class="btn btn-secondary">Edit</button></a> |
+                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Nidhi</th>
+                                <td>Falak</td>
+                                <td>nidhi.falak@gmail.com</td>
+                                <td>
+                                    <a asp-action="Edit" button type="submit" class="btn btn-secondary">Edit</button></a> |
+                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Jack</th>
+                                <td>Smith</td>
+                                <td>jacksmith@gmail.com</td>
+                                <td>
+                                    <a asp-action="Edit" button type="submit" class="btn btn-secondary">Edit</button></a> |
+                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+             <div class="col-12 col-sm-3">
+            </div>
+       </div> 
+    
+        
     </div>
     <footer class="footer">
         <div class="container">
