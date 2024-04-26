@@ -27,7 +27,7 @@
                     <li class="nav-item"><a class="nav-link" href="./nonrenewable.html"> <span class="fa fa-list fa-lg"> </span>Non Renewable Resources</a> </li>
                     <li class="nav-item"><a class="nav-link" href="./totalenergy.html"> <span class="fa fa-list fa-lg"> </span>Total Energy Production</a> </li>
                     <li class="nav-item"><a class="nav-link" href="./aboutus.html"> <span class="fa fa-info fa-lg"> </span>About Us</a> </li>
-                    <li class="nav-item active"><a class="nav-link" href="#"> <span class="fa fa-info fa-lg"> </span>Articles</a> </li>
+                    <li class="nav-item active"><a class="nav-link" href="#"> <span class="fa-solid fa-book"> </span>Articles</a> </li>
                
                 </ul>
                    
@@ -64,26 +64,26 @@
     <div class="row row-content">
         <div class="col-12">
             <h3>SUBSCRIBE NOW</h3>
-            <h5>To get latest news articles or updates about energy developments</h5>
+            <h5>To get latest articles or updates about energy developments</h5>
         </div>
         <div class="col-12 col-md-9">
             <form id="subscribeForm">
                 <div class="form-group row">
-                    <label for="firstname" class="col-md-2 col-form-label">FirstName</label>
+                    <label for="firstname" class="col-md-2 col-form-label">First Name</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="FirstName">
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="lastname" class="col-md-2 col-form-label">LastName</label>
+                    <label for="lastname" class="col-md-2 col-form-label">Last Name</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="LastName">
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="emailid" class="col-md-2 col-form-label">Email</label>
                     <div class="col-md-10">
-                        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
+                        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -92,9 +92,29 @@
                     </div>
                 </div>
             </form>
-            
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3>Subscribers</h3>
+                <table id="subscriberTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subscriberList">
+                        <!-- Subscriber data will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
+
     
     <footer class="footer">
         <div class="container">
@@ -107,6 +127,7 @@
                         <li><a href="./nonrenewable.html">Non Renewable</a></li>
                         <li><a href="./totalenergy.html">Total Energy</a></li>
                         <li><a href="./aboutus.html">About us</a></li>
+                        <li><a href="./articles.html">Articles</a></li>
                     </ul>
                 </div>
 
@@ -198,6 +219,58 @@
 });
 
 </script>
+<script>
+    $(document).ready(function() {
+        $('#subscribeForm').submit(function(event) {
+            event.preventDefault();
+            
+            // Get form data
+            var formData = {
+                firstname: $('#firstname').val(),
+                lastname: $('#lastname').val(),
+                emailid: $('#emailid').val()
+            };
+
+            // Clear form fields
+            $('#firstname').val('');
+            $('#lastname').val('');
+            $('#emailid').val('');
+
+            // Append subscriber data to table
+            $('#subscriberList').append(`
+                <tr>
+                    <td>${formData.firstname}</td>
+                    <td>${formData.lastname}</td>
+                    <td>${formData.emailid}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm editBtn">Edit</button>
+                        <button class="btn btn-danger btn-sm deleteBtn">Delete</button>
+                    </td>
+                </tr>
+            `);
+        });
+
+        // Handle edit button click (event delegation)
+        $('#subscriberList').on('click', '.editBtn', function() {
+            var row = $(this).closest('tr');
+            var firstName = row.find('td:eq(0)').text();
+            var lastName = row.find('td:eq(1)').text();
+
+            // Update form fields with selected data
+            $('#firstname').val(firstName);
+            $('#lastname').val(lastName);
+
+            // Remove row from table
+            row.remove();
+        });
+
+        // Handle delete button click (event delegation)
+        $('#subscriberList').on('click', '.deleteBtn', function() {
+            $(this).closest('tr').remove();
+        });
+    });
+</script>
+   
 </body>
 
 </html>
