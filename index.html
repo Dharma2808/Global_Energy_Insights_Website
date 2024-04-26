@@ -133,121 +133,20 @@
                 </div>
             </div>
         </div> 
-        <div class="row row-content">
-            <div class="col-12">
-               <h3>SUBSCRIBE NOW</h3>
-               <h5>To get latest news articles or updates about energy developments</h5>
+
+        <div class="container">
+            <div id="button_chart_division">
+            <div>
+            <input type="text" id="cityInput" placeholder="Enter city">
+            <button id="weatherButton" onclick="getWeather()">Get Weather</button>
             </div>
-             <div class="col-12 col-md-9">
-                 <form>
-                     <div class="form-group row">
-                         <label for="firstname" class="col-md-2 col-form-label">FirstName</label>
-                       <div class="col-md-10">
-                         <input type ="text" class="form-control" id="firstname" name="firstname" placeholder="FirstName">
-                      </div>
-                      </div>
-                      <div class="form-group row">
-                         <label for="lastname" class="col-md-2 col-form-label">LastName</label>
-                       <div class="col-md-10">
-                         <input type ="text" class="form-control" id="lastname" name="lastname" placeholder="LastName">
-                      </div>
-                      </div>
-                     <div class="form-group row">
-                         <label for="emailid" class="col-md-2 col-form-label">Email</label>
-                         <div class="col-md-10">
-                             <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
-                         </div>
-                     </div>
-                 <div class="form-group row">
-                     <div class="offset-md-2 col-md-10">
-                         <a asp-action="submit" button type="submit" class="btn btn-primary">Subscribe</button></a> 
-                     </div>
-                 </div>
- 
-                     
-                 </form>
-             </div>
-             
-              <div class="col-12 col-md">
-             </div>
+            <div id="space">
+            <canvas id="weatherChart" width="400" height="200"></canvas>
+            </div>
+            </div>
         </div>
-        <div class="row row-content">
-            <div class="col-12 col-sm-9 ">
-                <h2>Subscribers</h2>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>FirstName</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Tim</th>
-                                <td>Thomas</td>
-                                <td>tim.thomas@gmail.com</td>
-                                <td>
-                                    <button type="submit" class="btn btn-secondary edit-btn">Edit</button> |
-                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Rahul</th>
-                                <td>Kumar</td>
-                                <td>kumar.r@gmail.com</td>
-                                <td>
-                                    <button type="submit" class="btn btn-secondary edit-btn">Edit</button> |
-                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Nidhi</th>
-                                <td>Falak</td>
-                                <td>nidhi.falak@gmail.com</td>
-                                <td>
-                                    <button type="submit" class="btn btn-secondary edit-btn">Edit</button> |
-                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>Jack</th>
-                                <td>Smith</td>
-                                <td>jacksmith@gmail.com</td>
-                                <td>
-                                    <button type="submit" class="btn btn-secondary edit-btn">Edit</button> |
-                                    <a asp-action="Delete" button type="submit" class="btn btn-secondary">Delete</button></a>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-             <div class="col-12 col-sm-3">
-            </div>
-            <div id="editFormContainer" style="display: none;">
-                <h4>Edit User</h4>
-                <form id="editForm">
-                    <div class="form-group">
-                        <label for="editFirstName">First Name:</label>
-                        <input type="text" class="form-control" id="editFirstName" name="editFirstName">
-                    </div>
-                    <div class="form-group">
-                        <label for="editLastName">Last Name:</label>
-                        <input type="text" class="form-control" id="editLastName" name="editLastName">
-                    </div>
-                    <div class="form-group">
-                        <label for="editEmail">Email:</label>
-                        <input type="email" class="form-control" id="editEmail" name="editEmail">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                    <button type="button" class="btn btn-secondary cancel-edit">Cancel</button>
-                </form>
-            </div>
-       </div> 
+
+    
     
         
     </div>
@@ -284,10 +183,107 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    
-    
-        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#mycarousel').carousel({interval : 2000});
+            $("#carouselButton").click(function(){
+                if ($("#carouselButton").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carouselButton").children("span").removeClass('fa-pause');
+                    $("#carouselButton").children("span").addClass('fa-play');
+                }
+                else if ($("#carouselButton").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carouselButton").children("span").removeClass('fa-play');
+                    $("#carouselButton").children("span").addClass('fa-pause');                    
+                }
+            });
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#mybtn').click(function(){
+                    $('#reservemodal').modal('toggle');
+                });
+        });
+     </script>
+      <script>
+        $(document).ready(function(){
+            $('#login').click(function(){
+                    $('#loginModal').modal('toggle');
+                });
+        });
+     </script>
+<script>
+    function getWeather() {
+            const city = document.getElementById('cityInput').value;
+ 
+            // Your OpenWeatherMap API key
+            const apiKey = 'bd5e378503939ddaee76f12ad7a97608'; // Replace 'your_api_key_here' with your actual API key
+ 
+            // Create the URL by appending the city as a query parameter
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric`;
+ 
+            // Use fetch to send a GET request to the server
+            fetch(apiUrl, {
+                method: 'GET', // Use GET since we're sending the city as a query parameter
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const temperature = data.main.temp;
+                    const humidity = data.main.humidity;
+ 
+                    // Update the chart with the fetched data
+                    updateChart(temperature, humidity);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                });
+        }
+        function updateChart(temperature, humidity) {
+            const ctx = document.getElementById('weatherChart').getContext('2d');
+ 
+            // Destroy existing chart instance if it exists
+            if (window.myChart) {
+                window.myChart.destroy();
+            }
+ 
+            // Create new chart instance
+            window.myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Temperature', 'Humidity'],
+                    datasets: [{
+                        label: 'Weather Data',
+                        data: [temperature, humidity],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true, // Allows the chart to resize based on container size
+                    maintainAspectRatio: false, // Set to false to control aspect ratio independently
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+</script>
+   
+
 </body>
 
 </html>
